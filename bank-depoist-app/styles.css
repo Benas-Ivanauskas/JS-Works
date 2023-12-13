@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+/* -----Nav------- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+.login {
+  display: flex;
+  margin-right: 40px;
+  gap: 10px;
+}
+.login_btn {
+  height: 30px;
+  width: 50px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(177, 173, 167);
+}
+.login_input {
+  width: 120px;
+  height: 30px;
+  border: none;
+  border-radius: 20px;
+  padding-left: 10px;
+  background-color: rgb(177, 173, 167);
+}
+
+.app {
+  display: grid;
+  grid-template-rows: 2fr 3fr;
+  position: relative;
+  margin-top: 150px;
+  margin-left: 450px;
+}
+/* --------Balance--------- */
+
+.Balance {
+  display: grid;
+  width: 500px;
+  grid-template-columns: 3fr 1fr;
+}
+
+.balance_laber,
+.balance_date {
+  margin-left: 5px;
+  width: 150px;
+  text-align: center;
+}
+
+.balance_value {
+  width: 150px;
+  text-align: center;
+  margin-right: 95px;
+}
+
+/* ----Movements---- */
+.movements {
+  overflow: scroll;
+  width: 500px;
+}
+.movements_row {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+.movements_type {
+  width: 100px;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 10px 4px 10px;
+  color: white;
+}
+.movements_type--deposit {
+  color: white;
+  background-color: green;
+}
+.movements_type--withdrawal {
+  color: white;
+  background-color: red;
+  width: 130px;
+}
+
+.movements_value {
+  width: 100px;
+}

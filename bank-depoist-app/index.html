@@ -3,17 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="styles.css" />
+    <title>Bank-app</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Nav------------------------>
     <nav>
-      <h2>Login to get started</h2>
-      <form>
-        <input type="text" placeholder="" />
+      <p class="welcome">Login to get started</p>
+      <form class="login">
+        <input
+          type="text"
+          placeholder="user"
+          class="login_input login_input--user"
+        />
+        <input
+          type="text"
+          placeholder="PIN"
+          maxlength="4"
+          class="login_input login_input--pin"
+        />
+        <button class="login_btn">&rarr;</button>
       </form>
     </nav>
-    <main></main>
+    <main class="app">
+      <!-- ---------------Balance------------- -->
+      <div class="Balance">
+        <div>
+          <p class="balance_laber">Current Balance</p>
+          <p class="balance_date">date</p>
+        </div>
+        <p class="balance_value">00000Eur</p>
+      </div>
+      <!-- ---------Movements---------- -->
+      <div class="movements">
+        <div class="movements_row">
+          <p class="movements_type movements_type--deposit">2 deposit</p>
+          <p class="movements_value movements_value--value">4000 Eur</p>
+        </div>
+        <div class="movements_row">
+          <p class="movements_type movements_type--withdrawal">2 withdrawal</p>
+          <p class="movements_value movements_value--value">-500 Eur</p>
+        </div>
+      </div>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
