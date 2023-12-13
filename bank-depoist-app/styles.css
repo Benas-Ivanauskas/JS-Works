@@ -1,14 +1,33 @@
 body {
   margin: 0;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(230, 225, 225);
+}
+
+.app {
+  display: grid;
+  grid-template-rows: 2fr 3fr;
+  width: 500px;
+  position: relative;
+}
+.section {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+  width: 900px;
+  margin-top: 150px;
+  margin-left: 600px;
+  gap: 30px;
+  /* ------open when login-------- */
+  transition: 0.3s;
+  opacity: 100%;
 }
 
 /* -----Nav------- */
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 30px;
+  column-gap: 400px;
 }
 .login {
   display: flex;
@@ -20,7 +39,7 @@ nav {
   width: 50px;
   border: none;
   border-radius: 20px;
-  background-color: rgb(177, 173, 167);
+  background-color: rgb(136, 130, 130);
 }
 .login_input {
   width: 120px;
@@ -28,47 +47,49 @@ nav {
   border: none;
   border-radius: 20px;
   padding-left: 10px;
-  background-color: rgb(177, 173, 167);
+  background-color: white;
 }
 
-.app {
-  display: grid;
-  grid-template-rows: 2fr 3fr;
-  position: relative;
-  margin-top: 150px;
-  margin-left: 450px;
+.welcome {
+  font-size: 25px;
+  font-weight: bold;
 }
 /* --------Balance--------- */
 
 .Balance {
   display: grid;
-  width: 500px;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgb(180, 172, 172);
+  border-bottom: 1px solid #000000;
 }
 
 .balance_laber,
 .balance_date {
-  margin-left: 5px;
+  margin-left: 15px;
   width: 150px;
-  text-align: center;
+  text-align: start;
+}
+.balance_laber {
+  font-weight: bold;
 }
 
 .balance_value {
-  width: 150px;
-  text-align: center;
-  margin-right: 95px;
+  margin-left: 130px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  color: green;
 }
 
 /* ----Movements---- */
 .movements {
   overflow: scroll;
-  width: 500px;
 }
 .movements_row {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid #eee;
+  background-color: rgb(180, 172, 172);
+  border-bottom: 1px solid #000000;
   text-align: center;
 }
 .movements_type {
@@ -90,4 +111,101 @@ nav {
 
 .movements_value {
   width: 100px;
+}
+
+/* ------------Summary---------- */
+.summary {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 0.2fr 1fr 0.6fr;
+  background-color: rgb(180, 172, 172);
+}
+
+.btn--sort {
+  width: 35px;
+  height: 35px;
+  font-size: 10px;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 8px;
+  background-color: rgb(136, 130, 130);
+  cursor: pointer;
+}
+
+/* ----------Operation transfer------------ */
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-left: 15px;
+}
+
+.operation {
+  height: 130px;
+  background-color: rgb(180, 172, 172);
+  margin-bottom: 50px;
+}
+
+.form_input {
+  width: 100px;
+  border: none;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.form_btn {
+  border-radius: 30px;
+  width: 50px;
+  border: none;
+  background-color: rgb(136, 130, 130);
+  cursor: pointer;
+}
+
+.transfer_label {
+  margin-left: 20px;
+  font-weight: bold;
+  padding-top: 10px;
+  display: inline-block;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ----------Delete Account------------ */
+.form_delete {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-left: 15px;
+}
+
+.form_delete {
+  width: 100px;
+  border: none;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.form_delete_btn {
+  border-radius: 30px;
+  width: 50px;
+  border: none;
+  background-color: rgb(136, 130, 130);
+  cursor: pointer;
+}
+
+.delete_label {
+  margin-left: 20px;
+  font-weight: bold;
+  padding-top: 10px;
+  display: inline-block;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form_label {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.delete {
+  height: 130px;
+  background-color: rgb(180, 172, 172);
+  margin-bottom: 50px;
 }

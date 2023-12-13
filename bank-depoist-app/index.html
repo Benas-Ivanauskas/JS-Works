@@ -25,24 +25,78 @@
         <button class="login_btn">&rarr;</button>
       </form>
     </nav>
-    <main class="app">
-      <!-- ---------------Balance------------- -->
-      <div class="Balance">
-        <div>
-          <p class="balance_laber">Current Balance</p>
-          <p class="balance_date">date</p>
+    <main class="section">
+      <div>
+        <!-- ---------------Balance------------- -->
+        <div class="app">
+          <div class="Balance">
+            <div>
+              <p class="balance_laber">Current Balance</p>
+              <p class="balance_date">date</p>
+            </div>
+            <p class="balance_value">00000Eur</p>
+          </div>
+          <!-- ---------Movements---------- -->
+          <div class="movements">
+            <div class="movements_row">
+              <p class="movements_type movements_type--deposit">2 deposit</p>
+              <p class="movements_value movements_value--value">4000 Eur</p>
+            </div>
+            <div class="movements_row">
+              <p class="movements_type movements_type--withdrawal">
+                2 withdrawal
+              </p>
+              <p class="movements_value movements_value--value">-500 Eur</p>
+            </div>
+          </div>
+          <!-- ---------summary-------------- -->
+          <div class="summary">
+            <p class="summary_label">In</p>
+            <p class="summary_laber summary_label--in">5000 Eur</p>
+            <p class="summary_label">Out</p>
+            <p class="summary_label summary_label--out">100 Eur</p>
+            <button class="btn--sort">&downarrow; SORT</button>
+          </div>
         </div>
-        <p class="balance_value">00000Eur</p>
       </div>
-      <!-- ---------Movements---------- -->
-      <div class="movements">
-        <div class="movements_row">
-          <p class="movements_type movements_type--deposit">2 deposit</p>
-          <p class="movements_value movements_value--value">4000 Eur</p>
+      <div>
+        <!-- --------------Tranfer Money----------------- -->
+        <div class="operation operation--transfer">
+          <h3 class="transfer_label">Transfer Money</h3>
+          <form class="form form--transfer">
+            <input
+              type="text"
+              class="form_input form_input--to"
+              placeholder="name..."
+            />
+            <input
+              type="text"
+              class="form_input form_input--amount"
+              placeholder="Amount..."
+            />
+            <button class="form_btn form_btn--transfer">&rarr;</button>
+            <label class="form_label">Transfer to</label>
+            <label class="form_label">Amount</label>
+          </form>
         </div>
-        <div class="movements_row">
-          <p class="movements_type movements_type--withdrawal">2 withdrawal</p>
-          <p class="movements_value movements_value--value">-500 Eur</p>
+        <!-- --------------Delete Account----------------- -->
+        <div class="delete delete--account">
+          <h3 class="delete_label">Delete Account</h3>
+          <form class="form_delete form_delete--delete">
+            <input
+              type="text"
+              class="form_delete form_delete--name"
+              placeholder="name..."
+            />
+            <input
+              type="text"
+              class="form_delete form_delete--pin"
+              placeholder="PIN..."
+            />
+            <button class="form_delete_btn form_delete_btn--delete">
+              &rarr;
+            </button>
+          </form>
         </div>
       </div>
     </main>
