@@ -80,7 +80,7 @@ console.log(accounts);
 const displayCalcBalance = function (movements) {
   //Skaiciuojame balance suma
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  balanceValue.textContent = `${balance} Eur`;
+  balanceValue.textContent = `Account Balance ${balance} Eur`;
 };
 
 // displayCalcBalance(account1.movements);
@@ -126,6 +126,11 @@ labelLoginBtn.addEventListener("click", function (e) {
   //pranesti pranesima UI kad prisijunge ir nustatyti opacity 100 kad rodytu vaizda
   labelWelcome.textContent = `Welcome back ${currentAccount.owner}`;
   boxSection.style.opacity = 100;
+
+  //clear input fields
+  inputLoginUserName.value = "";
+  inputPin.value = "";
+
   // parodyti movements
   displayMovements(currentAccount.movements);
   //parodyti balance ir summary
