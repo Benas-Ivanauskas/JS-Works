@@ -58,35 +58,7 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
-
-//2.Antra uzduotis, susiraseme viska i viena funkcija ir suskaiciuojame visus inestus pinigus tam tikruose laukeliuose
-const displayCalculationsMovements = function (acc) {
-  //Skaiciuojame balance suma
-  acc.balance = account1.movements.reduce((acc, mov) => acc + mov, 0);
-  balanceValue.textContent = `${acc.balance} Eur`;
-
-  //Skaiciuojame acc inestu pinigu suma In
-  acc.sumIn = account1.movements
-    .filter((mov) => mov > 0)
-    .reduce((acc, mov) => acc + mov, 0);
-  summaryIn.textContent = `${acc.sumIn} Eur`;
-
-  //paskaiciuoti acc nusiimtu pinigu suma
-  acc.sumOut = account1.movements
-    .filter((mov) => mov < 0)
-    .reduce((acc, mov) => acc + mov, 0);
-  summaryOut.textContent = `${Math.abs(acc.sumOut)} Eur`;
-};
-displayCalculationsMovements(account1.movements);
-
-//3. Trecia uzduotis nustatytis siandienos data
-const displayCurrentDate = function () {
-  balanceDate.textContent = `${new Date().toLocaleDateString()}`;
-};
-displayCurrentDate();
-
-//4. ketvirta uzduotis. Prisijungti su tam tikru Acc
+// displayMovements(account1.movements);
 
 //susikureme kad prisijungimo vardai butu pirmosios raidas. pvz Tom Gold = tg
 const createUserNames = function (accounts) {
@@ -102,6 +74,39 @@ const createUserNames = function (accounts) {
   );
 };
 createUserNames(accounts);
+console.log(accounts);
+
+//2.Antra uzduotis, susiraseme viska i viena funkcija ir suskaiciuojame visus inestus pinigus tam tikruose laukeliuose
+const displayCalcBalance = function (movements) {
+  //Skaiciuojame balance suma
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  balanceValue.textContent = `${balance} Eur`;
+};
+
+// displayCalcBalance(account1.movements);
+
+const displaySummaryCalc = function (movements) {
+  //Skaiciuojame acc inestu pinigu suma In
+  const sumIn = movements
+    .filter((mov) => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  summaryIn.textContent = `${sumIn} Eur`;
+
+  //paskaiciuoti acc nusiimtu pinigu suma
+  const sumOut = movements
+    .filter((mov) => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  summaryOut.textContent = `${Math.abs(sumOut)} Eur`;
+};
+// displaySummaryCalc(account1.movements);
+
+//3. Trecia uzduotis nustatytis siandienos data
+const displayCurrentDate = function () {
+  balanceDate.textContent = `${new Date().toLocaleDateString()}`;
+};
+displayCurrentDate();
+
+//4. ketvirta uzduotis. Prisijungti su tam tikru Acc
 
 //login event handler
 
@@ -121,4 +126,9 @@ labelLoginBtn.addEventListener("click", function (e) {
   //pranesti pranesima UI kad prisijunge ir nustatyti opacity 100 kad rodytu vaizda
   labelWelcome.textContent = `Welcome back ${currentAccount.owner}`;
   boxSection.style.opacity = 100;
+  // parodyti movements
+  displayMovements(currentAccount.movements);
+  //parodyti balance ir summary
+  displayCalcBalance(currentAccount.movements);
+  displaySummaryCalc(currentAccount.movements);
 });
