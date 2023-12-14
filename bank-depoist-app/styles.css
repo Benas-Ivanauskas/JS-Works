@@ -8,6 +8,7 @@ body {
   grid-template-rows: 2fr 3fr;
   width: 500px;
   position: relative;
+  height: 0px;
 }
 .section {
   display: grid;
@@ -85,6 +86,7 @@ nav {
 /* ----Movements---- */
 .movements {
   overflow: scroll;
+  height: 300px;
 }
 .movements_row {
   display: grid;
@@ -131,6 +133,15 @@ nav {
   margin-top: 8px;
   background-color: rgb(136, 130, 130);
   cursor: pointer;
+}
+.summary_label--in {
+  color: green;
+  font-weight: bold;
+}
+
+.summary_label--out {
+  color: rgb(212, 16, 16);
+  font-weight: bold;
 }
 
 /* ----------Operation transfer------------ */
