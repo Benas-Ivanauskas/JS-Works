@@ -61,6 +61,7 @@ nav {
   grid-template-columns: 1fr 1fr;
   background-color: rgb(180, 172, 172);
   border-bottom: 1px solid #000000;
+  height: 100px;
 }
 
 .balance_laber,
