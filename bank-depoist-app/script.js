@@ -42,6 +42,10 @@ const summaryOut = document.querySelector(".summary_label--out");
 const summarySort = document.querySelector(".btn--sort");
 // ----------section---------
 const boxSection = document.querySelector(".section");
+// -------------Transfer-------------------
+const transferInputTo = document.querySelector(".form_input--to");
+const transferInputAmount = document.querySelector(".form_input--amount");
+const transferBtn = document.querySelector(".form_btn--transfer");
 
 //1. pirma uzduotis, perkelti account1 movements duomenis is array i UI.
 const displayMovements = function (movements) {
@@ -77,10 +81,11 @@ createUserNames(accounts);
 console.log(accounts);
 
 //2.Antra uzduotis, susiraseme viska i viena funkcija ir suskaiciuojame visus inestus pinigus tam tikruose laukeliuose
-const displayCalcBalance = function (movements) {
+const displayCalcBalance = function (acc) {
   //Skaiciuojame balance suma
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  balanceValue.textContent = `Account Balance ${balance} Eur`;
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+
+  balanceValue.textContent = `Account Balance ${acc.balance} Eur`;
 };
 
 // displayCalcBalance(account1.movements);
@@ -110,6 +115,14 @@ displayCurrentDate();
 
 //login event handler
 
+const updateUI = function (acc) {
+  // // parodyti movements
+  displayMovements(acc.movements);
+  // //parodyti balance ir summary
+  displayCalcBalance(acc);
+  displaySummaryCalc(acc);
+};
+
 //let kintamasis reikalingas outsides addeventlistener function. Kad butu galima transferint pinigus is kurio acc i kazkieno acc
 let currentAccount;
 
@@ -131,9 +144,37 @@ labelLoginBtn.addEventListener("click", function (e) {
   inputLoginUserName.value = "";
   inputPin.value = "";
 
-  // parodyti movements
-  displayMovements(currentAccount.movements);
-  //parodyti balance ir summary
-  displayCalcBalance(currentAccount.movements);
-  displaySummaryCalc(currentAccount.movements);
+  // // parodyti movements
+  // displayMovements(currentAccount.movements);
+  // //parodyti balance ir summary
+  // displayCalcBalance(currentAccount);
+  // displaySummaryCalc(currentAccount.movements);
+  //perkeliau i updateUI funkcija
+  updateUI(currentAccount);
+});
+
+//Transfer dalis
+
+transferBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const amount = Number(transferInputAmount.value);
+  console.log(amount);
+  const receiveAcc = accounts.find(
+    (acc) => acc.username === transferInputTo.value
+  ); //ieskome accounto kuris turi tinkama reiksme
+  console.log(receiveAcc);
+  //patikrinti, kad negaletu sau persivesti ir didesnes sumos nei saskaitoje
+
+  if (
+    amount > 0 &&
+    receiveAcc &&
+    currentAccount.balance >= amount &&
+    receiveAcc?.username !== currentAccount.user
+  ) {
+    //darome pavedima
+    currentAccount.movements.push(-amount);
+    receiveAcc.movements.push(amount);
+    updateUI(currentAccount);
+  }
+  console.log("transfer valid");
 });

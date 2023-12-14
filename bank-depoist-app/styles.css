@@ -60,7 +60,7 @@ nav {
 .Balance {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: rgb(180, 172, 172);
+  background-color: white;
   border-bottom: 1px solid #000000;
   height: 100px;
 }
@@ -92,7 +92,7 @@ nav {
 .movements_row {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  background-color: rgb(180, 172, 172);
+  background-color: white;
   border-bottom: 1px solid #000000;
   text-align: center;
 }
@@ -121,7 +121,7 @@ nav {
 .summary {
   display: grid;
   grid-template-columns: 0.2fr 1fr 0.2fr 1fr 0.6fr;
-  background-color: rgb(180, 172, 172);
+  background-color: white;
 }
 
 .btn--sort {
@@ -155,8 +155,9 @@ nav {
 
 .operation {
   height: 130px;
-  background-color: rgb(180, 172, 172);
+  background-image: linear-gradient(315deg, #fec84e 0%, #ffdea8 74%);
   margin-bottom: 50px;
+  border-radius: 20px;
 }
 
 .form_input {
@@ -219,8 +220,9 @@ nav {
 
 .delete {
   height: 130px;
-  background-color: rgb(180, 172, 172);
+  background-image: linear-gradient(315deg, #772f1a 0%, #f2a65a 74%);
   margin-bottom: 50px;
+  border-radius: 20px;
 }
 
 @media only screen and (max-width: 1500px) {
