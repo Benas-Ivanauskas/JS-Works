@@ -55,9 +55,32 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+//Paskaiciuoti acc pinigu suma
 const displayCalcBalance = function (acc) {
   acc.balance = account1.movements.reduce((acc, mov) => acc + mov, 0);
   balanceValue.textContent = `${acc.balance} Eur`;
 };
-
 displayCalcBalance(account1.movements);
+
+//Paskaiciuoti acc inestu pinigu suma
+const displayCalcSumIn = function (acc) {
+  acc.sumIn = account1.movements
+    .filter((mov) => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  summaryIn.textContent = `${acc.sumIn} Eur`;
+};
+displayCalcSumIn(account1.movements);
+//paskaiciuoti acc nusiimtu pinigu suma
+
+const displayCalcSumOut = function (acc) {
+  acc.sumOut = account1.movements
+    .filter((mov) => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  summaryOut.textContent = `${Math.abs(acc.sumOut)} Eur`;
+};
+displayCalcSumOut(account1.movements);
+
+const displayCurrentDate = function () {
+  balanceDate.textContent = `${new Date().toLocaleDateString()}`;
+};
+displayCurrentDate();
