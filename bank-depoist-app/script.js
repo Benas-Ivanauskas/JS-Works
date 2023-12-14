@@ -40,6 +40,8 @@ const boxMovements = document.querySelector(".movements");
 const summaryIn = document.querySelector(".summary_label--in");
 const summaryOut = document.querySelector(".summary_label--out");
 const summarySort = document.querySelector(".btn--sort");
+// ----------section---------
+const boxSection = document.querySelector(".section");
 
 //1. pirma uzduotis, perkelti account1 movements duomenis is array i UI.
 const displayMovements = function (movements) {
@@ -86,6 +88,7 @@ displayCurrentDate();
 
 //4. ketvirta uzduotis. Prisijungti su tam tikru Acc
 
+//susikureme kad prisijungimo vardai butu pirmosios raidas. pvz Tom Gold = tg
 const createUserNames = function (accounts) {
   accounts.forEach(
     (acc) =>
@@ -107,9 +110,15 @@ let currentAccount;
 
 labelLoginBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  console.log("LOGIN");
+  //susirandame username account
   currentAccount = accounts.find(
     (acc) => acc.username === inputLoginUserName.value
   );
   console.log(currentAccount);
+
+  // optional chaining ? pin bus tik skaitomas kai currentAccount egzistuos
+  if (currentAccount?.pin === Number(inputPin.value)) console.log("login");
+  //pranesti pranesima UI kad prisijunge ir nustatyti opacity 100 kad rodytu vaizda
+  labelWelcome.textContent = `Welcome back ${currentAccount.owner}`;
+  boxSection.style.opacity = 100;
 });

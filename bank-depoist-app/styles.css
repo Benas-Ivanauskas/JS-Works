@@ -18,8 +18,8 @@ body {
   margin-left: 600px;
   gap: 30px;
   /* ------open when login-------- */
-  transition: 0.3s;
-  opacity: 100%;
+  transition: all 1s;
+  opacity: 0;
 }
 
 /* -----Nav------- */
