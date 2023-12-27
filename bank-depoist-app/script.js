@@ -255,8 +255,8 @@ deleteAccBtn.addEventListener("click", function (e) {
   } else {
     alert(`Wrong user name or PIN. Please try again!`);
   }
-  // boxSection.style.opacity = 0;
-  // labelWelcome.textContent = "Login to get started";
+  deleteInputAcc.textContent = "";
+  deleteInputAcc.textContent = "";
 });
 
 //---12. grazinti pradini vaizda istrynus acc.
