@@ -41,6 +41,7 @@ nav {
   border: none;
   border-radius: 20px;
   background-color: rgb(136, 130, 130);
+  cursor: pointer;
 }
 .login_input {
   width: 120px;
