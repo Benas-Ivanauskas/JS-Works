@@ -57,7 +57,7 @@ const displayMovements = function (movement) {
   currentAcc.movements.forEach((mov, i) => {
     const type = mov > 0 ? "deposit" : "withdrawal";
     const html = ` <div class="movements_row">
-    <p class="movements_type movements_type--${type}">${i + 1} deposit</p>
+    <p class="movements_type movements_type--${type}">${i + 1} ${type}</p>
     <p class="movements_value movements_value--value">${mov} Eur</p>
   </div>`;
     //insertinome reiksmes nuo movements [0] iki movements.length-1 reiksmes eiles tvarka
@@ -67,9 +67,12 @@ const displayMovements = function (movement) {
 // displayMovements(account1.movements);
 
 //---2. suskaiciuoti saskaitos current balance.
-const displayBalance = function (movement) {
+const displayBalance = function (account) {
   //7 uzduotyje is accounts1.movements pakeiciama i currentAcc.movements, kad rodytu prie skirtingu acc ju reiksmes
-  const balance = currentAcc.movements.reduce((acc, cur) => acc + cur, 0);
+  //8 uzduotyje function (movement) keiciame i (account) ir currentActt i account
+  // ir irasome account.balance = balance, kad butu konkretus tam tikro accounto balance
+  const balance = account.movements.reduce((acc, cur) => acc + cur, 0);
+  account.balance = balance;
   balanceValue.textContent = `Current balance - ${balance} Eur`;
 };
 //displayBalance(account1.movements);
@@ -145,12 +148,14 @@ labelLoginBtn.addEventListener("click", function (e) {
   inputPin.value = "";
 
   //---7. padarome, kad prisijungus su skirtingu acc, rodytu ju duomenis
-  //display balance
-  displayBalance(currentAcc.movements);
-  //display movements
-  displayMovements(currentAcc.movements);
-  //display summary
-  displayCalckSummary(currentAcc.movements);
+  //display balance, calliname su visu currentAcc
+  // displayBalance(currentAcc);
+  // //display movements
+  // displayMovements(currentAcc.movements);
+  // //display summary
+  // displayCalckSummary(currentAcc.movements);
+  //UpdateUI perkeliame viska i kita funkcija
+  updateUI(currentAcc);
 });
 
 //---8. integruojame transfer money
@@ -164,4 +169,31 @@ transferBtn.addEventListener("click", function (e) {
     (acc) => acc.username === transferInputTo.value
   );
   console.log(receiveAcc);
+
+  //1)pasidarome, kad amount >0.
+  //2)negalime pervesti daugiau nei yra current.balance - current.balance<amount
+  //3) padarome kad negalime pinigu transferint i savo acc
+  //4)ir ar receiveracc isviso egzsistuoja
+  if (
+    amount > 0 &&
+    currentAcc.balance > amount &&
+    currentAcc?.username !== receiveAcc.username &&
+    receiveAcc
+  ) {
+    //---9. su push method padarome, kad ivesta reiksme nuimtu ijungtam acc ir pridetu kitiems acc
+    currentAcc.movements.push(-amount);
+    receiveAcc.movements.push(amount);
+
+    //update UI
+    updateUI(currentAcc);
+  }
 });
+
+const updateUI = function (acc) {
+  //display balance
+  displayBalance(currentAcc);
+  //display movements
+  displayMovements(currentAcc.movements);
+  //display summary
+  displayCalckSummary(currentAcc.movements);
+};
