@@ -46,14 +46,15 @@ const boxSection = document.querySelector(".section");
 const transferInputTo = document.querySelector(".form_input--to");
 const transferInputAmount = document.querySelector(".form_input--amount");
 const transferBtn = document.querySelector(".form_btn--transfer");
+//-----------------------------------------------------------------------
 
 //----1. integruoti movements array
 // for each metodu turiu padaryti, kad rodytu movements, index.
 const displayMovements = function (movement) {
   //panaikina html irasytas reiksmiu pvz 4000 Eur ir -500 Eur
   boxMovements.innerHTML = "";
-
-  account1.movements.forEach((mov, i) => {
+  //7 uzduotyje is accounts1.movements pakeiciama i currentAcc.movements, kad rodytu prie skirtingu acc ju reiksmes
+  currentAcc.movements.forEach((mov, i) => {
     const type = mov > 0 ? "deposit" : "withdrawal";
     const html = ` <div class="movements_row">
     <p class="movements_type movements_type--${type}">${i + 1} deposit</p>
@@ -63,11 +64,12 @@ const displayMovements = function (movement) {
     boxMovements.insertAdjacentHTML("beforeend", html);
   });
 };
-displayMovements(account1.movements);
+// displayMovements(account1.movements);
 
 //---2. suskaiciuoti saskaitos current balance.
 const displayBalance = function (movement) {
-  const balance = account1.movements.reduce((acc, cur) => acc + cur, 0);
+  //7 uzduotyje is accounts1.movements pakeiciama i currentAcc.movements, kad rodytu prie skirtingu acc ju reiksmes
+  const balance = currentAcc.movements.reduce((acc, cur) => acc + cur, 0);
   balanceValue.textContent = `Current balance - ${balance} Eur`;
 };
 //displayBalance(account1.movements);
@@ -81,20 +83,22 @@ currentDate();
 
 //---4. apskaiciuojame summary in, out sumas.
 const displayCalckSummary = function (movement) {
-  const sumIn = account1.movements
+  //7 uzduotyje is accounts1.movements pakeiciama i currentAcc.movements, kad rodytu prie skirtingu acc ju reiksmes
+  const sumIn = currentAcc.movements
     .filter((mov) => mov > 0)
     .reduce((mov, cur) => mov + cur, 0);
   summaryIn.textContent = `${sumIn} Eur`;
 
-  const sumOut = account1.movements
+  //7 uzduotyje is accounts1.movements pakeiciama i currentAcc.movements, kad rodytu prie skirtingu acc ju reiksmes
+  const sumOut = currentAcc.movements
     .filter((mov) => mov < 0)
     .reduce((mov, cur) => mov + cur, 0);
   summaryOut.textContent = `${sumOut} Eur`;
 };
 
-displayCalckSummary(account1.movements);
+// displayCalckSummary(account1.movements);
 
-//---------PVZ kaip pasidaryti-----------------
+//---------PVZ kaip pasidaryti su user name-----------------
 const user = "Tom Gold";
 console.log(
   user
@@ -129,7 +133,8 @@ labelLoginBtn.addEventListener("click", function (e) {
   );
   console.log(currentAcc);
 
-  if (currentAcc.pin === Number(inputPin.value)) console.log("LOGIN");
+  if (currentAcc.pin === Number(inputPin.value))
+    console.log("You are loged in!");
 
   labelWelcome.textContent = `Welcome back ${currentAcc.owner}!`;
   //kaip prisijungia, padarome section class opacity 100, kad rodytu visus movements, transfers, log out
@@ -140,5 +145,23 @@ labelLoginBtn.addEventListener("click", function (e) {
   inputPin.value = "";
 
   //---7. padarome, kad prisijungus su skirtingu acc, rodytu ju duomenis
+  //display balance
   displayBalance(currentAcc.movements);
+  //display movements
+  displayMovements(currentAcc.movements);
+  //display summary
+  displayCalckSummary(currentAcc.movements);
+});
+
+//---8. integruojame transfer money
+
+transferBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const amount = Number(transferInputAmount.value);
+  console.log(amount);
+  // susirandame acc username, norime kad konkretus acc butu lygus transferinputto irasytai input reiksmei
+  const receiveAcc = accounts.find(
+    (acc) => acc.username === transferInputTo.value
+  );
+  console.log(receiveAcc);
 });
