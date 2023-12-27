@@ -91,8 +91,13 @@ const displayBalance = function (account) {
 
 //---3. nustatome sios dienos data.
 const currentDate = function () {
-  const date = new Date().toDateString();
-  balanceDate.textContent = date;
+  const nowDate = new Date();
+  const year = nowDate.getFullYear();
+  const day = `${nowDate.getDate()}`.padStart(2, 0);
+  const month = `${nowDate.getMonth()}`.padStart(2, 0);
+  const hour = `${nowDate.getHours()}`.padStart(2, 0);
+  const min = `${nowDate.getMinutes()}`.padStart(2, 0);
+  balanceDate.textContent = `${year}-${month}-${day}. Time ${hour}:${min}`;
 };
 currentDate();
 
@@ -254,7 +259,7 @@ deleteAccBtn.addEventListener("click", function (e) {
   // labelWelcome.textContent = "Login to get started";
 });
 
-//---12. parodyti pradini vaizda istrynus acc.
+//---12. grazinti pradini vaizda istrynus acc.
 const hideUI = function () {
   boxSection.style.opacity = 0;
   labelWelcome.textContent = `Login to get started`;
