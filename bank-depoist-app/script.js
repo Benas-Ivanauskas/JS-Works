@@ -46,20 +46,32 @@ const boxSection = document.querySelector(".section");
 const transferInputTo = document.querySelector(".form_input--to");
 const transferInputAmount = document.querySelector(".form_input--amount");
 const transferBtn = document.querySelector(".form_btn--transfer");
+// -------------DeleteAcc-------------------
+const deleteInputAcc = document.querySelector(".form_delete--name");
+const deleteInputPin = document.querySelector(".form_delete--pin");
+const deleteAccBtn = document.querySelector(".form_delete_btn--delete");
 //-----------------------------------------------------------------------
 
 //----1. integruoti movements array
 // for each metodu turiu padaryti, kad rodytu movements, index.
-const displayMovements = function (movement) {
+
+const displayMovements = function (movements, sort = false) {
   //panaikina html irasytas reiksmiu pvz 4000 Eur ir -500 Eur
   boxMovements.innerHTML = "";
+
+  //10 uzduotis. idedame dar viena parametra sort=false by default
+  //sukuriame kopija su slice metodu, nes esame viduryje grandines ir nenorime mutuoti originalaus array
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  // ir reikia movs irasyti currentAcc.movements.forEach((mov, i) vietoj curentAcc.movements - movs
+
   //7 uzduotyje is accounts1.movements pakeiciama i currentAcc.movements, kad rodytu prie skirtingu acc ju reiksmes
-  currentAcc.movements.forEach((mov, i) => {
+  movs.forEach((mov, i) => {
     const type = mov > 0 ? "deposit" : "withdrawal";
     const html = ` <div class="movements_row">
     <p class="movements_type movements_type--${type}">${i + 1} ${type}</p>
     <p class="movements_value movements_value--value">${mov} Eur</p>
   </div>`;
+
     //insertinome reiksmes nuo movements [0] iki movements.length-1 reiksmes eiles tvarka
     boxMovements.insertAdjacentHTML("beforeend", html);
   });
@@ -186,6 +198,8 @@ transferBtn.addEventListener("click", function (e) {
 
     //update UI
     updateUI(currentAcc);
+    transferInputAmount.value = "";
+    transferInputTo.value = "";
   }
 });
 
@@ -197,3 +211,14 @@ const updateUI = function (acc) {
   //display summary
   displayCalckSummary(currentAcc.movements);
 };
+
+//---10. lets make movements Sort
+// padarome sorted false, kadangi pradzioje nera sorted
+let sorted = false;
+summarySort.addEventListener("click", function (e) {
+  e.preventDefault();
+  displayMovements(currentAcc.movements, !sorted);
+  sorted = !sorted;
+});
+
+//---11. Delete account
