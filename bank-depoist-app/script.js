@@ -61,7 +61,7 @@ const displayMovements = function (movements, sort = false) {
 
   //10 uzduotis. idedame dar viena parametra sort=false by default
   //sukuriame kopija su slice metodu, nes esame viduryje grandines ir nenorime mutuoti originalaus array
-  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  const movs = sort ? movements.slice().sort((a, b) => b - a) : movements;
   // ir reikia movs irasyti currentAcc.movements.forEach((mov, i) vietoj curentAcc.movements - movs
 
   //7 uzduotyje is accounts1.movements pakeiciama i currentAcc.movements, kad rodytu prie skirtingu acc ju reiksmes
@@ -148,26 +148,29 @@ labelLoginBtn.addEventListener("click", function (e) {
   );
   console.log(currentAcc);
 
-  if (currentAcc.pin === Number(inputPin.value))
+  if (currentAcc?.pin === Number(inputPin.value)) {
     console.log("You are loged in!");
 
-  labelWelcome.textContent = `Welcome back ${currentAcc.owner}!`;
-  //kaip prisijungia, padarome section class opacity 100, kad rodytu visus movements, transfers, log out
-  boxSection.style.opacity = 100;
+    labelWelcome.textContent = `Welcome back ${currentAcc.owner}!`;
+    //kaip prisijungia, padarome section class opacity 100, kad rodytu visus movements, transfers, log out
+    boxSection.style.opacity = 100;
 
-  //isvalome inputs kai prisijungia
-  inputLoginUserName.value = "";
-  inputPin.value = "";
+    //isvalome inputs kai prisijungia
+    inputLoginUserName.value = "";
+    inputPin.value = "";
 
-  //---7. padarome, kad prisijungus su skirtingu acc, rodytu ju duomenis
-  //display balance, calliname su visu currentAcc
-  // displayBalance(currentAcc);
-  // //display movements
-  // displayMovements(currentAcc.movements);
-  // //display summary
-  // displayCalckSummary(currentAcc.movements);
-  //UpdateUI perkeliame viska i kita funkcija
-  updateUI(currentAcc);
+    //---7. padarome, kad prisijungus su skirtingu acc, rodytu ju duomenis
+    //display balance, calliname su visu currentAcc
+    // displayBalance(currentAcc);
+    // //display movements
+    // displayMovements(currentAcc.movements);
+    // //display summary
+    // displayCalckSummary(currentAcc.movements);
+    //UpdateUI perkeliame viska i kita funkcija
+    updateUI(currentAcc);
+  } else {
+    alert(`Invalid username or PIN. Please try again!`);
+  }
 });
 
 //---8. integruojame transfer money
@@ -225,18 +228,34 @@ summarySort.addEventListener("click", function (e) {
 //Reikia surasti account index, kad galetume istrinti. Naudosime findIndex method
 deleteAccBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  if (
-    deleteInputAcc.value === currentAcc.username &&
-    Number(deleteInputPin.value) === currentAcc.pin
-  ) {
-    //findIndex pagalba surandame vardo index 0
+
+  currentAcc = accounts.find(
+    //susirandme current acc
+    (acc) => acc.username === deleteInputAcc.value
+  );
+  console.log(currentAcc);
+
+  if (currentAcc?.pin === Number(deleteInputPin.value)) {
+    console.log("Your account is deleted!");
+
     const index = accounts.findIndex(
-      (acc) => acc.username === currentAcc.username
+      (acc) => acc.username === currentAcc?.username
     );
     console.log(index);
     //splice leis deletinti useri
     accounts.splice(index, 1);
+    console.log(accounts);
+    //12. uzduotis irasome hideUI, kai istriname acc, kad grazintu i pradini langa
+    hideUI();
+  } else {
+    alert(`Wrong user name or PIN. Please try again!`);
   }
-  boxSection.style.opacity = 0;
-  labelWelcome.textContent = "Login to get started";
+  // boxSection.style.opacity = 0;
+  // labelWelcome.textContent = "Login to get started";
 });
+
+//---12. parodyti pradini vaizda istrynus acc.
+const hideUI = function () {
+  boxSection.style.opacity = 0;
+  labelWelcome.textContent = `Login to get started`;
+};
