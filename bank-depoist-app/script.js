@@ -222,3 +222,21 @@ summarySort.addEventListener("click", function (e) {
 });
 
 //---11. Delete account
+//Reikia surasti account index, kad galetume istrinti. Naudosime findIndex method
+deleteAccBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (
+    deleteInputAcc.value === currentAcc.username &&
+    Number(deleteInputPin.value) === currentAcc.pin
+  ) {
+    //findIndex pagalba surandame vardo index 0
+    const index = accounts.findIndex(
+      (acc) => acc.username === currentAcc.username
+    );
+    console.log(index);
+    //splice leis deletinti useri
+    accounts.splice(index, 1);
+  }
+  boxSection.style.opacity = 0;
+  labelWelcome.textContent = "Login to get started";
+});
