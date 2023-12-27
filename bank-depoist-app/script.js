@@ -172,6 +172,8 @@ labelLoginBtn.addEventListener("click", function (e) {
     // //display summary
     // displayCalckSummary(currentAcc.movements);
     //UpdateUI perkeliame viska i kita funkcija
+    document.querySelector(".logOut_btn").style.opacity = 100;
+
     updateUI(currentAcc);
   } else {
     alert(`Invalid username or PIN. Please try again!`);
@@ -252,11 +254,12 @@ deleteAccBtn.addEventListener("click", function (e) {
     console.log(accounts);
     //12. uzduotis irasome hideUI, kai istriname acc, kad grazintu i pradini langa
     hideUI();
+    deleteInputAcc.value = "";
+    deleteInputPin.value = "";
+    document.querySelector(".logOut_btn").style.opacity = 0;
   } else {
     alert(`Wrong user name or PIN. Please try again!`);
   }
-  deleteInputAcc.textContent = "";
-  deleteInputAcc.textContent = "";
 });
 
 //---12. grazinti pradini vaizda istrynus acc.
@@ -264,3 +267,25 @@ const hideUI = function () {
   boxSection.style.opacity = 0;
   labelWelcome.textContent = `Login to get started`;
 };
+
+let isDarkMode = false;
+const darkMode = function () {
+  //---13.dark mode/ light mode
+  isDarkMode = !isDarkMode;
+  if (isDarkMode) {
+    document.body.style.backgroundColor = "rgb(55, 55, 55)";
+    document.body.style.color = "white";
+    document.querySelector(".summary").style.backgroundColor =
+      "rgb(238, 139, 139);";
+    document.querySelector(".mode-btn").style.backgroundColor =
+      "rgb(55, 55, 55)";
+  } else {
+    document.body.style.backgroundColor = "rgb(230, 225, 225)";
+    document.body.style.color = "black";
+    document.querySelector(".summary").style.backgroundColor = "white";
+    document.querySelector(".mode-btn").style.backgroundColor =
+      "rgb(230, 225, 225)";
+  }
+};
+const toggleButton = document.querySelector(".mode-btn");
+toggleButton.addEventListener("click", darkMode);
