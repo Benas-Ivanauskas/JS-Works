@@ -50,8 +50,7 @@ const transferBtn = document.querySelector(".form_btn--transfer");
 const deleteInputAcc = document.querySelector(".form_delete--name");
 const deleteInputPin = document.querySelector(".form_delete--pin");
 const deleteAccBtn = document.querySelector(".form_delete_btn--delete");
-// -------------DeleteAcc-------------------
-
+// -------------LogOutNav-------------------
 const logOut = document.querySelector(".logOut_btn");
 
 //-----------------------------------------------------------------------
@@ -95,12 +94,16 @@ const displayBalance = function (account) {
 //---3. nustatome sios dienos data.
 const currentDate = function () {
   const nowDate = new Date();
-  const year = nowDate.getFullYear();
-  const day = `${nowDate.getDate()}`.padStart(2, 0);
-  const month = `${nowDate.getMonth()}`.padStart(2, 0);
-  const hour = `${nowDate.getHours()}`.padStart(2, 0);
-  const min = `${nowDate.getMinutes()}`.padStart(2, 0);
-  balanceDate.textContent = `${year}-${month}-${day}. Time ${hour}:${min}`;
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  };
+  balanceDate.textContent = `${new Intl.DateTimeFormat("en-LT", options).format(
+    nowDate
+  )}`;
 };
 currentDate();
 
@@ -312,13 +315,27 @@ const startTimerLogOut = function () {
       boxSection.style.opacity = 0;
       logOut.style.opacity = 0;
       labelWelcome.textContent = "Login to get started";
+      document.body.style.backgroundColor = "rgb(230, 225, 225)";
+      document.body.style.color = "black";
+      document.querySelector(".mode-btn").style.backgroundColor =
+        "rgb(230, 225, 225)";
     }
     //decreases 1 sec
     time--;
   };
-  let time = 20;
+  let time = 240;
 
   tick();
   const timer = setInterval(tick, 1000);
   return timer;
 };
+
+//---15. Log out nav atsijungimas
+logOut.addEventListener("click", function (e) {
+  e.preventDefault();
+  boxSection.style.opacity = 0;
+  document.body.style.backgroundColor = "rgb(230, 225, 225)";
+  document.body.style.color = "black";
+  document.querySelector(".mode-btn").style.backgroundColor =
+    "rgb(230, 225, 225)";
+});
