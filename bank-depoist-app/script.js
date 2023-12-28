@@ -101,7 +101,7 @@ const currentDate = function () {
     hour: "numeric",
     minute: "numeric",
   };
-  balanceDate.textContent = `${new Intl.DateTimeFormat("en-LT", options).format(
+  balanceDate.textContent = `${new Intl.DateTimeFormat("lt-LT", options).format(
     nowDate
   )}`;
 };
@@ -338,4 +338,5 @@ logOut.addEventListener("click", function (e) {
   document.body.style.color = "black";
   document.querySelector(".mode-btn").style.backgroundColor =
     "rgb(230, 225, 225)";
+  labelWelcome.textContent = "Login to get stared";
 });
