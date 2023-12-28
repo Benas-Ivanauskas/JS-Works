@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  background-color: #f3f3f3;
+  color: #444;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 50px;
+  padding: 0 6rem;
+  z-index: 100;
+  margin-top: 10px;
+}
+.nav.sticky {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+.nav__logo {
+  width: 100px;
+  transition: all 0.3s;
+}
+.nav__links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+.nav__item {
+  margin-left: 4rem;
+}
+.nav__link {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav__menu--bar {
+  width: 120px;
+  height: 40px;
+  border: none;
+  font-size: 20px;
+  background-color: #f3f3f3;
+}
+
+.nav__link:link,
+.nav__link:visited {
+  color: rgb(77, 76, 76);
+  text-decoration: none;
+  transition: all 0.3s;
+  font-size: 25px;
+}
+
+.nav__link--btn {
+  background-color: #adacac;
+  color: black;
+}
+
+.nav__link--btn:hover,
+.nav__link--btn:active {
+  background: rgb(56, 185, 56);
+  color: rgb(8, 8, 8);
+}
+
+.nav__link--btn:link,
+.nav__link--btn:visited {
+  padding: 10px;
+  border-radius: 3rem;
+}
