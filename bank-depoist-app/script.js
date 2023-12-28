@@ -50,8 +50,11 @@ const transferBtn = document.querySelector(".form_btn--transfer");
 const deleteInputAcc = document.querySelector(".form_delete--name");
 const deleteInputPin = document.querySelector(".form_delete--pin");
 const deleteAccBtn = document.querySelector(".form_delete_btn--delete");
-//-----------------------------------------------------------------------
+// -------------DeleteAcc-------------------
 
+const logOut = document.querySelector(".logOut_btn");
+
+//-----------------------------------------------------------------------
 //----1. integruoti movements array
 // for each metodu turiu padaryti, kad rodytu movements, index.
 
@@ -142,7 +145,7 @@ const createUserNames = function (acc) {
 createUserNames(accounts);
 console.log(accounts);
 
-let currentAcc;
+let currentAcc, timer;
 //---6. prisijungti su tam tikru acc ir pranesti welcome user name ir nustatyti opacity
 labelLoginBtn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -173,6 +176,9 @@ labelLoginBtn.addEventListener("click", function (e) {
     // displayCalckSummary(currentAcc.movements);
     //UpdateUI perkeliame viska i kita funkcija
     document.querySelector(".logOut_btn").style.opacity = 100;
+    //log out timer
+    if (timer) clearInterval(timer);
+    timer = startTimerLogOut();
 
     updateUI(currentAcc);
   } else {
@@ -210,6 +216,9 @@ transferBtn.addEventListener("click", function (e) {
     updateUI(currentAcc);
     transferInputAmount.value = "";
     transferInputTo.value = "";
+    //reset timer, kad po kiekvieno transfer atsinaujintu laikas
+    clearInterval(timer);
+    startTimerLogOut();
   }
 });
 
@@ -289,3 +298,27 @@ const darkMode = function () {
 };
 const toggleButton = document.querySelector(".mode-btn");
 toggleButton.addEventListener("click", darkMode);
+
+//---14. Log out timer
+const startTimerLogOut = function () {
+  const tick = function () {
+    const minutes = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(Math.trunc(time % 60)).padStart(2, 0);
+    //kai vyksta call, UI parasyti likusi laika
+    document.querySelector(".time").textContent = `${minutes}:${sec}`;
+
+    if (time === 0) {
+      clearInterval(timer);
+      boxSection.style.opacity = 0;
+      logOut.style.opacity = 0;
+      labelWelcome.textContent = "Login to get started";
+    }
+    //decreases 1 sec
+    time--;
+  };
+  let time = 20;
+
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
