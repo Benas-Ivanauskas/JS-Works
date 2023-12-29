@@ -23,6 +23,7 @@ nav.addEventListener("mouseout", function (e) {
     const logo = link.closest(".nav").querySelector("img");
 
     siblings.forEach((element) => {
+      //checking if current element not linked itself
       if (element !== link) element.style.opacity = 1;
     });
     logo.style.opacity = 1;

@@ -1,19 +1,11 @@
-body {
-  margin: 0;
-  background-color: #f3f3f3;
-  color: #444;
-  font-family: "Poppins", sans-serif;
-}
-
 .nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-left: 50px;
   padding: 0 6rem;
   z-index: 100;
-  margin-top: 10px;
+  /* background-color: lightblue; */
 }
 .nav.sticky {
   position: fixed;
@@ -54,7 +46,7 @@ body {
 }
 
 .nav__link--btn {
-  background-color: rgb(56, 185, 56);
+  background-color: #32cd32;
   color: black;
 }
 
