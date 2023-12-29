@@ -54,13 +54,13 @@ body {
 }
 
 .nav__link--btn {
-  background-color: #adacac;
+  background-color: rgb(56, 185, 56);
   color: black;
 }
 
 .nav__link--btn:hover,
 .nav__link--btn:active {
-  background: rgb(56, 185, 56);
+  background: rgb(80, 199, 80);
   color: rgb(8, 8, 8);
 }
 
