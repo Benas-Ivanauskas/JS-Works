@@ -1,0 +1,90 @@
+.modal {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background-color: rgb(255, 255, 255);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  transition: all 0.5s;
+}
+.modal-box {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  margin-left: 110px;
+  margin-top: 50px;
+  row-gap: 30px;
+  column-gap: 10px;
+}
+.modal h2 {
+  font-size: 25px;
+  text-align: center;
+  line-height: 50px;
+  margin-top: 60px;
+}
+
+.modal label {
+  font-size: 25px;
+}
+
+.modal input {
+  width: 200px;
+  padding: 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.modal-highlight {
+  background-color: #32cd32;
+  border-radius: 20px;
+  box-shadow: 5px 5px 0px rgb(8, 148, 15);
+  padding: 5px;
+  position: relative;
+}
+.modal--close {
+  position: fixed;
+  right: 0;
+  font-size: 30px;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(255, 255, 255);
+}
+
+.model--next {
+  margin-left: 38%;
+  margin-top: 40px;
+  width: 160px;
+  font-size: 20px;
+  padding: 8px;
+  border: none;
+  background-color: #32cd32;
+  font-size: 26px;
+  font-weight: 400;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.model--next:hover,
+.model--next:active {
+  background: rgb(60, 175, 60);
+  color: rgb(8, 8, 8);
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 1;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}

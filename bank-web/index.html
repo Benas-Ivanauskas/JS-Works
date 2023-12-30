@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/section1.css" />
     <link rel="stylesheet" href="css/section2.css" />
+    <link rel="stylesheet" href="css/modal.css" />
   </head>
   <body>
     <nav class="nav">
@@ -24,7 +25,9 @@
           <a class="nav__link" href="#section--3">FeedBack</a>
         </li>
         <li class="nav__item">
-          <a class="nav__link nav__link--btn" href="#">Open account</a>
+          <a class="nav__link nav__link--btn modal--open" href="#"
+            >Open account</a
+          >
         </li>
       </ul>
     </nav>
@@ -47,7 +50,7 @@
     <section class="section-1" id="section--1">
       <div class="section1__title1">
         <h1 class="section1-h1">
-          Everything in one <span class="section1-highlight">safe</span>
+          Everything in one <span class="section1-highlight">place</span>
         </h1>
         <div class="section1-text-box">
           <p class="section1-p">
@@ -81,6 +84,24 @@
     <section class="section--2" id="section--2">
       <div>hello</div>
     </section>
+    <div class="modal hidden">
+      <button class="modal--close">✖</button>
+      <h2>
+        Grab your first <br />
+        <span class="modal-highlight">credit card</span><br />
+        for quick access to finances
+      </h2>
+      <form class="modal-box">
+        <label>First name</label>
+        <input type="text" placeholder="type first name..." />
+        <label>Last name</label>
+        <input type="text" placeholder="type last name..." />
+        <label>Email address</label>
+        <input type="text" placeholder="type email..." />
+      </form>
+      <button class="model--next">Next step</button>
+    </div>
     <script src="script/navBar.js"></script>
+    <script src="script/modal.js"></script>
   </body>
 </html>
