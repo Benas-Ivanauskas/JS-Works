@@ -32,11 +32,25 @@ nav.addEventListener("mouseout", function (e) {
 });
 
 //Navbar page scroll to sections animation
-document.querySelectorAll(".nav__link").forEach((e) => {
-  e.addEventListener("click", function (e) {
-    e.preventDefault();
+
+//this method is not the best one, better use event delegation with common parent in which elements we are intrested.
+//Try it later with event delegation...
+// document.querySelectorAll(".nav__link").forEach((e) => {
+//   e.addEventListener("click", function (e) {
+//     e.preventDefault();
+//     const id = e.target.getAttribute("href");
+//     // console.log(id);
+//     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+//   });
+// });
+
+//Evenet delegation
+document.querySelector(".nav__links").addEventListener("click", function (e) {
+  e.preventDefault();
+  if (e.target.classList.contains("nav__link")) {
+    console.log("Link");
     const id = e.target.getAttribute("href");
-    // console.log(id);
+    console.log(id);
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-  });
+  }
 });
