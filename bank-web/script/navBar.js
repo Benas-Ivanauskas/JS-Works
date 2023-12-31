@@ -1,6 +1,7 @@
 "use strict";
 
 const nav = document.querySelector(".nav");
+// const section1 = document.querySelector("#section--1");
 
 //NavBar Fade animation
 nav.addEventListener("mouseover", function (e) {
@@ -28,4 +29,14 @@ nav.addEventListener("mouseout", function (e) {
     });
     logo.style.opacity = 1;
   }
+});
+
+//Navbar page scroll to sections animation
+document.querySelectorAll(".nav__link").forEach((e) => {
+  e.addEventListener("click", function (e) {
+    e.preventDefault();
+    const id = e.target.getAttribute("href");
+    // console.log(id);
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  });
 });
