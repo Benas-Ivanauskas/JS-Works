@@ -5,3 +5,45 @@
   align-items: center;
   border-bottom: 1px solid rgb(202, 202, 202);
 }
+.section--2 h1 {
+  font-size: 60px;
+  text-align: center;
+  width: 60%;
+  margin-top: 50px;
+}
+
+.section2-box-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 100px;
+  width: 800px;
+  height: 300px;
+  margin-right: 300px;
+}
+.test {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.section2-box-text {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 100px;
+  margin-top: 20px;
+}
+.test2 {
+  width: 300px;
+}
+.test3 {
+  line-height: 25px;
+}
+
+.section2-highlight {
+  background-color: #32cd32;
+  border-radius: 20px;
+  box-shadow: 5px 5px 0px rgb(8, 148, 15);
+  padding: 5px;
+  position: relative;
+}
