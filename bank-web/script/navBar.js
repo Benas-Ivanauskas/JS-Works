@@ -66,3 +66,4 @@ window.addEventListener("scroll", function (e) {
     nav.style.opacity = 0.85;
   } else nav.classList.remove("sticky");
 });
+//Bug when pressing navigation scrolls lower than section because of this need to find solution

@@ -25,8 +25,10 @@
   width: 300px;
   height: 300px;
   object-fit: contain;
-  cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s, filter 1s;
+}
+.lazy-img {
+  filter: blur(20px);
 }
 .card-images:hover {
   transform: scale(1.2);
