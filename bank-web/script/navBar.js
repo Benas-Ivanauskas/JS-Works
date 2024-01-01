@@ -63,5 +63,6 @@ window.addEventListener("scroll", function (e) {
   // console.log(window.scrollY);
   if (window.scrollY > initalCoords.top - s1Height) {
     nav.classList.add("sticky");
+    nav.style.opacity = 0.85;
   } else nav.classList.remove("sticky");
 });
