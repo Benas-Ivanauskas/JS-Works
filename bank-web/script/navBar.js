@@ -1,7 +1,7 @@
 "use strict";
 
 const nav = document.querySelector(".nav");
-// const section1 = document.querySelector("#section--1");
+const s1 = document.querySelector("#section--1");
 
 //NavBar Fade animation
 nav.addEventListener("mouseover", function (e) {
@@ -53,4 +53,15 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
     // console.log(id);
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   }
+});
+
+//Navbar when reaches section1 sticky navigation
+const s1Height = 100;
+const initalCoords = s1.getBoundingClientRect();
+// console.log(initalCoords);
+window.addEventListener("scroll", function (e) {
+  // console.log(window.scrollY);
+  if (window.scrollY > initalCoords.top - s1Height) {
+    nav.classList.add("sticky");
+  } else nav.classList.remove("sticky");
 });

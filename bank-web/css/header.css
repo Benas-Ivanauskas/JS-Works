@@ -44,6 +44,9 @@
   color: #32cd32;
   transition: all 0.3s;
 }
+.header--btn:hover {
+  color: rgb(14, 129, 3);
+}
 
 .header-highlight {
   background-color: #32cd32;
