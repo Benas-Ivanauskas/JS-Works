@@ -1,5 +1,5 @@
 .section--3 {
-  height: 100vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,18 +7,13 @@
 }
 
 .slider-container {
-  width: 1000px;
-  height: 500px;
-  /* background-color: green; */
+  width: 800px;
+  height: 550px;
   position: relative;
   overflow: hidden;
 }
 .slide {
   position: absolute;
-  top: 50px;
-  transform: translateX(12%);
-  transform: translateX(12%);
-  width: 80%;
   transition: transform 1s;
 }
 
@@ -54,19 +49,23 @@
 }
 
 .slider__btn {
-  position: fixed;
+  position: absolute;
   top: 50%;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 25px;
   border: none;
-  background-color: white;
+  background-color: rgb(105, 104, 104);
+  cursor: pointer;
+  z-index: 100;
+  overflow: visible;
+  opacity: 0.5;
 }
 .slider__btn--left {
-  left: -90px;
+  left: 0px;
 }
 .slider__btn--right {
-  right: -70px;
+  right: 0px;
 }
 
 /* ---------------dots------------- */
