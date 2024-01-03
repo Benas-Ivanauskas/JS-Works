@@ -22,6 +22,7 @@
   border-radius: 30px;
   width: 400px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .footer__link--btn:hover,
