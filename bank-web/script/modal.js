@@ -2,7 +2,7 @@
 
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-const modalOpenBtn = document.querySelector(".modal__open");
+const modalOpenBtn = document.querySelectorAll(".modal__open");
 const modalCloseBtn = document.querySelector(".modal__close");
 
 const modalOpen = function (e) {
@@ -16,7 +16,10 @@ const modalClose = function () {
   overlay.classList.add("hidden");
 };
 
-modalOpenBtn.addEventListener("click", modalOpen);
+modalOpenBtn.forEach((btn) => btn.addEventListener("click", modalOpen));
+for (let i = 0; i < modalOpenBtn.length; i++)
+  modalOpenBtn[i].addEventListener("click", modalOpen);
+// modalOpenBtn.addEventListener("click", modalOpen);
 modalCloseBtn.addEventListener("click", modalClose);
 
 document.addEventListener("keydown", function (e) {
