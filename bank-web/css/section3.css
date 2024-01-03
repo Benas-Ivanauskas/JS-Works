@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: 1px solid rgb(202, 202, 202);
 }
 
 .slider-container {
@@ -15,6 +14,7 @@
 .slide {
   position: absolute;
   transition: transform 1s;
+  width: 100%;
 }
 
 .slide-title {
@@ -99,7 +99,7 @@
   width: 57%;
   color: #32cd32;
   font-size: 25px;
-  margin-top: 140px;
+  margin-top: 100px;
 }
 
 .section3-highlight {

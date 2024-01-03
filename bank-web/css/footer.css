@@ -1,4 +1,60 @@
-.footer {
-  height: 40vh;
+.footer1 {
+  height: 20vh;
   background-color: rgb(53, 54, 51);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid rgb(87, 85, 85);
+}
+
+.footer1 h1 {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  font-style: oblique;
+}
+.footer__link--btn {
+  background-color: #32cd32;
+  color: black;
+  font-size: 25px;
+  padding: 20px;
+  border: none;
+  border-radius: 30px;
+  width: 400px;
+  font-weight: bold;
+}
+
+.footer__link--btn:hover,
+.footer__link--btn:active {
+  background: rgb(60, 175, 60);
+  color: rgb(8, 8, 8);
+}
+
+.footer__link--btn:link,
+.footer__link--btn:visited {
+  padding: 10px;
+  border-radius: 3rem;
+}
+
+.footer2 {
+  height: 15vh;
+  background-color: rgb(53, 54, 51);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer2-box {
+  display: flex;
+  flex-direction: row;
+}
+.footer-links {
+  margin-left: 50px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+.footer2-logo {
+  width: 100px;
+  margin-left: 50px;
 }
