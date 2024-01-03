@@ -1,5 +1,5 @@
 .section--3 {
-  height: 80vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +69,7 @@
 }
 
 /* ---------------dots------------- */
-.dots {
+/* .dots {
   position: absolute;
   bottom: 5%;
   left: 50%;
@@ -87,4 +87,25 @@
   margin-right: 1.75rem;
   cursor: pointer;
   transition: all 0.5s;
+} */
+
+.section--3 h1 {
+  font-size: 60px;
+  text-align: center;
+  width: 60%;
+}
+
+.section3-h2 {
+  width: 57%;
+  color: #32cd32;
+  font-size: 25px;
+  margin-top: 140px;
+}
+
+.section3-highlight {
+  background-color: #32cd32;
+  border-radius: 20px;
+  box-shadow: 5px 5px 0px rgb(8, 148, 15);
+  padding: 5px;
+  position: relative;
 }
