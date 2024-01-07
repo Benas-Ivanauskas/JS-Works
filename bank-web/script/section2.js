@@ -13,7 +13,7 @@ const loadImg = function (entries, observer) {
 
       // After the image is loaded, remove the "lazy-img"
       img.addEventListener("load", function () {
-        img.classList.remove("lazy-img");
+        img.classList.remove("lazy__img");
         observer.unobserve(img);
       });
     }

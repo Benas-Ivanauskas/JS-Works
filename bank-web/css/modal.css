@@ -36,7 +36,7 @@
   border-radius: 5px;
 }
 
-.modal-highlight {
+.modal__highlight {
   background-color: #32cd32;
   border-radius: 20px;
   box-shadow: 5px 5px 0px rgb(8, 148, 15);
@@ -52,7 +52,7 @@
   background-color: #f3f3f3;
 }
 
-.model--next {
+.modal--next {
   margin-left: 38%;
   margin-top: 40px;
   width: 160px;

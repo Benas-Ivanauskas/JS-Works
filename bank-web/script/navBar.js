@@ -48,9 +48,8 @@ nav.addEventListener("mouseout", function (e) {
 document.querySelector(".nav__links").addEventListener("click", function (e) {
   e.preventDefault();
   if (e.target.classList.contains("nav__link")) {
-    // console.log("Link");
     const id = e.target.getAttribute("href");
-    // console.log(id);
+
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   }
 });
@@ -58,9 +57,7 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
 //Navbar when reaches section1 sticky navigation
 const s1Height = 100;
 const initalCoords = s1.getBoundingClientRect();
-// console.log(initalCoords);
 window.addEventListener("scroll", function (e) {
-  // console.log(window.scrollY);
   if (window.scrollY > initalCoords.top - s1Height) {
     nav.classList.add("sticky");
     nav.style.opacity = 0.85;

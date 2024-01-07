@@ -2,7 +2,7 @@
 
 //slider
 const slides = document.querySelectorAll(".slide");
-const slideContainer = document.querySelector(".slider-container");
+const slideContainer = document.querySelector(".slider__container");
 const leftBtn = document.querySelector(".slider__btn--left");
 const rightBtn = document.querySelector(".slider__btn--right");
 
