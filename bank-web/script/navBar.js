@@ -33,7 +33,7 @@ nav.addEventListener("mouseout", function (e) {
 
 //Navbar page scroll to sections animation
 
-//this method is not the best one, better use event delegation with common parent in which elements we are intrested.
+//Comment --> this method is not the best one, better use event delegation with common parent in which elements we are intrested.
 //Try it later with event delegation...
 // document.querySelectorAll(".nav__link").forEach((e) => {
 //   e.addEventListener("click", function (e) {
@@ -44,7 +44,7 @@ nav.addEventListener("mouseout", function (e) {
 //   });
 // });
 
-//Evenet delegation
+//Event delegation
 document.querySelector(".nav__links").addEventListener("click", function (e) {
   e.preventDefault();
   if (e.target.classList.contains("nav__link")) {

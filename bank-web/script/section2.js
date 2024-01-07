@@ -2,7 +2,6 @@
 
 //Lazy loading img
 const imgTarget = document.querySelectorAll("img[data-src]");
-console.log(imgTarget);
 
 const loadImg = function (entries, observer) {
   entries.forEach((entry) => {

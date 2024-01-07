@@ -21,7 +21,7 @@ const goToSlide = function (slide) {
 };
 goToSlide(0);
 
-// //Events
+//Events
 rightBtn.addEventListener("click", function (e) {
   if (currentSlide === maxSlide - 1) {
     currentSlide = 0;

@@ -19,7 +19,6 @@ const modalClose = function () {
 modalOpenBtn.forEach((btn) => btn.addEventListener("click", modalOpen));
 for (let i = 0; i < modalOpenBtn.length; i++)
   modalOpenBtn[i].addEventListener("click", modalOpen);
-// modalOpenBtn.addEventListener("click", modalOpen);
 modalCloseBtn.addEventListener("click", modalClose);
 
 document.addEventListener("keydown", function (e) {
