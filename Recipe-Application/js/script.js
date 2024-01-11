@@ -1,6 +1,6 @@
 "use strict";
 
-const recipeContainer = document.querySelector(".recipe");
+const recipeContainer = document.querySelector(".current-recipe");
 
 //https://forkify-api.herokuapp.com/v2
 
@@ -8,7 +8,7 @@ const showRecipe = async function () {
   try {
     //1. Loading recipe
     const response = await fetch(
-      `https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bc96e`
+      `https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bcc13`
     );
     const data = await response.json();
 
@@ -25,106 +25,57 @@ const showRecipe = async function () {
       cookingTime: recipe.cooking_time,
       ingredients: recipe.ingredients,
     };
-    console.log(recipe);
+    console.log(recipe.ingredients);
+
+    const x = recipe.ingredients
+      .map((ingredient, i) => {
+        return `${i + 1}${ingredient.quantity} ${ingredient.unit} ${
+          ingredient.description
+        }`;
+      })
+      .join("/n");
+
+    console.log(x);
+
     //2. Rendering recipe
     const html = `
-          <figure class="recipe__fig">
-          <img src="${recipe.image}" alt="${
-      recipe.title
-    }" class="recipe__img" />
-          <h1 class="recipe__title">
-            <span>${recipe.title}</span>
-          </h1>
-        </figure>
+    <img src="${recipe.image}">
+    <h1 class="recipe__title">${recipe.title}</h1>
+    <div class="recipe__information-container">
+     <p class="recipe__cookingTime"> <i class="fa fa-clock-o" style="font-size:20px"></i>${
+       recipe.cookingTime
+     } minutes </p>
+     <div class="recipe__servings">
+       <p class="recipe__servings"><i class='fa fa-user'></i> ${
+         recipe.servings
+       }</p>
+       <button class="btn__add"><span class="symbol">+</span></button>
+       <button class="btn__add"><span class="symbol">-</span></button>
+     </div>
+     <button class="btn__bookMark"><i class="fa fa-bookmark-o" style="font-size:25px"></i></button>
+    </div>
 
-        <div class="recipe__details">
-          <div class="recipe__info">
-            <svg class="recipe__info-icon">
-              <use href="src/img/icons.svg#icon-clock"></use>
-            </svg>
-            <span class="recipe__info-data recipe__info-data--minutes">${
-              recipe.cookingTime
-            }</span>
-            <span class="recipe__info-text">minutes</span>
-          </div>
-          <div class="recipe__info">
-            <svg class="recipe__info-icon">
-              <use href="src/img/icons.svg#icon-users"></use>
-            </svg>
-            <span class="recipe__info-data recipe__info-data--people">${
-              recipe.servings
-            }</span>
-            <span class="recipe__info-text">servings</span>
-
-            <div class="recipe__info-buttons">
-              <button class="btn--tiny btn--increase-servings">
-                <svg>
-                  <use href="src/img/icons.svg#icon-minus-circle"></use>
-                </svg>
-              </button>
-              <button class="btn--tiny btn--increase-servings">
-                <svg>
-                  <use href="src/img/icons.svg#icon-plus-circle"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="recipe__user-generated">
-            <svg>
-              <use href="src/img/icons.svg#icon-user"></use>
-            </svg>
-          </div>
-          <button class="btn--round">
-            <svg class="">
-              <use href="src/img/icons.svg#icon-bookmark-fill"></use>
-            </svg>
-          </button>
-        </div>
-
-        <div class="recipe__ingredients">
-          <h2 class="heading--2">Recipe ingredients</h2>
-          <ul class="recipe__ingredient-list">
-          ${recipe.ingredients
-            .map((ing) => {
-              return `
-                <li class="recipe__ingredient">
-                <svg class="recipe__icon">
-                  <use href="src/img/icons.svg#icon-check"></use>
-                </svg>
-                <div class="recipe__quantity">${ing.quantity}</div>
-                <div class="recipe__description">
-                  <span class="recipe__unit">${ing.unit}</span>
-                  ${ing.description}
-                </div>
-              </li>
-            `;
-            })
-            .join("")}
-           
-          </ul>
-        </div>
-
-        <div class="recipe__directions">
-          <h2 class="heading--2">How to cook it</h2>
-          <p class="recipe__directions-text">
-            This recipe was carefully designed and tested by
-            <span class="recipe__publisher">${
-              recipe.publisher
-            }</span>. Please check out
-            directions at their website.
-          </p>
-          <a
-            class="btn--small recipe__btn"
-            href="${recipe.sourceUrl}/"
-            target="_blank"
-          >
-            <span>Directions</span>
-            <svg class="search__icon">
-              <use href="src/img/icons.svg#icon-arrow-right"></use>
-            </svg>
-          </a>
-        </div>
+    <div class="recipe-ingredients-container">
+       <h1 class="recipe__ingredients">RECIPE INGREDIENTS</h1>
+       <div class="recipe__list">
+      ${recipe.ingredients
+        .map((ing, i) => {
+          return `<ul>${i + 1}) ${ing.quantity} ${ing.unit} ${
+            ing.description
+          }</ul> `;
+        })
+        .join("")}
+      </div>
+      </div>
+     <div class="recipe__directions">
+       <h1 >HOW TO COOK IT</h1>
+       <p class="recipe-directions--text">This recipe was carefully designed and tested by <strong>${
+         recipe.publisher
+       }</strong> Please check out<br> directions at their website.</p>
+       <button class="directions__btn href="${
+         recipe.sourceUrl
+       } target="_blank"">Directions</button>
+     </div>
     `;
     recipeContainer.innerHTML = "";
     recipeContainer.insertAdjacentHTML("afterbegin", html);
