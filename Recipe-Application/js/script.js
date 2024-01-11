@@ -1,11 +1,23 @@
 "use strict";
+//https://forkify-api.herokuapp.com/v2
 
 const recipeContainer = document.querySelector(".current-recipe");
 
-//https://forkify-api.herokuapp.com/v2
+//Render spinner loader
+const renderSpinner = function () {
+  const markup = `
+    <div class="spinner">
+      <img src="svg/tube-spinner.svg">
+    </div>
+  `;
+  recipeContainer.innerHTML = "";
+  recipeContainer.insertAdjacentHTML("afterbegin", markup);
+};
 
 const showRecipe = async function () {
   try {
+    // Render spinner loader
+    renderSpinner(recipeContainer);
     //1. Loading recipe
     const response = await fetch(
       `https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bcc13`
