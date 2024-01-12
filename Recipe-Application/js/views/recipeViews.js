@@ -1,6 +1,8 @@
 class RecipeView {
   #parentElement = document.querySelector(".current-recipe");
   #data;
+  #errorMessage = `We could not find that recipe. Please try another one!`;
+  #message = "";
 
   render(data) {
     this.#data = data;
@@ -22,6 +24,28 @@ class RecipeView {
     this.#parentElement.innerHTML = "";
     this.#parentElement.insertAdjacentHTML("afterbegin", markup);
   };
+
+  renderError(message = this.#errorMessage) {
+    const markup = `
+    <div class="error">
+      <p>${message}</p>
+    </div>
+    `;
+    this.#clear();
+    this.#parentElement.insertAdjacentHTML("afterbegin", markup);
+  }
+
+  // renderMessage(message = this.##message) {
+  //   const markup = `
+  //   <div class="message">
+  //     <p>
+  //        ${message}
+  //    </p>
+  //   </div>
+  //   `;
+  //   this.#clear();
+  //   this.#parentElement.insertAdjacentHTML("afterbegin", markup);
+  // }
 
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((event) =>
