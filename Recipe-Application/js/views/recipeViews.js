@@ -1,51 +1,9 @@
-class RecipeView {
-  #parentElement = document.querySelector(".current-recipe");
-  #data;
-  #errorMessage = `💥💥💥 --- We could not find that recipe. Please try another one!`;
-  #message = "";
+import View from "./view.js";
 
-  render(data) {
-    this.#data = data;
-    const markup = this.#generateMarkup();
-    this.#clear();
-    this.#parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
-
-  #clear() {
-    this.#parentElement.innerHTML = "";
-  }
-
-  renderSpinner = function () {
-    const markup = `
-      <div class="spinner">
-        <img src="svg/tube-spinner.svg">
-      </div>
-    `;
-    this.#parentElement.innerHTML = "";
-    this.#parentElement.insertAdjacentHTML("afterbegin", markup);
-  };
-
-  renderError(message = this.#errorMessage) {
-    const markup = `
-    <div class="error">
-      <p>${message}</p>
-    </div>
-    `;
-    this.#clear();
-    this.#parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
-
-  // renderMessage(message = this.##message) {
-  //   const markup = `
-  //   <div class="message">
-  //     <p>
-  //        ${message}
-  //    </p>
-  //   </div>
-  //   `;
-  //   this.#clear();
-  //   this.#parentElement.insertAdjacentHTML("afterbegin", markup);
-  // }
+class RecipeView extends View {
+  _parentElement = document.querySelector(".current-recipe");
+  _errorMessage = `💥💥💥 --- We could not find that recipe. Please try another one!`;
+  _message = "";
 
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((event) =>
@@ -55,17 +13,17 @@ class RecipeView {
     // window.addEventListener("load", showRecipe);
   }
 
-  #generateMarkup() {
+  _generateMarkup() {
     return `
-    <img src="${this.#data.image}">
-    <h1 class="recipe__title">${this.#data.title}</h1>
+    <img src="${this._data.image}">
+    <h1 class="recipe__title">${this._data.title}</h1>
     <div class="recipe__information-container">
      <p class="recipe__cookingTime"> <i class="fa fa-clock-o" style="font-size:20px"></i>${
-       this.#data.cookingTime
+       this._data.cookingTime
      } minutes </p>
      <div class="recipe__servings">
        <p class="recipe__servings"><i class='fa fa-user'></i> ${
-         this.#data.servings
+         this._data.servings
        }</p>
        <button class="btn__add"><span class="symbol">+</span></button>
        <button class="btn__add"><span class="symbol">-</span></button>
@@ -76,7 +34,7 @@ class RecipeView {
     <div class="recipe-ingredients-container">
        <h1 class="recipe__ingredients">RECIPE INGREDIENTS</h1>
        <div class="recipe__list">
-      ${this.#data.ingredients
+      ${this._data.ingredients
         .map((ing, i) => {
           return `<ul>${i + 1}) ${ing.quantity} ${ing.unit} ${
             ing.description
@@ -88,10 +46,11 @@ class RecipeView {
      <div class="recipe__directions">
        <h1 >HOW TO COOK IT</h1>
        <p class="recipe-directions--text">This recipe was carefully designed and tested by <strong>${
-         this.#data.publisher
+         this._data.publisher
        }</strong> Please check out<br> directions at their website.</p>
-       <button class="directions__btn href="${
-         this.#data.sourceUrl
+       <button class="directions__btn" onclick="window.open('${
+         this._data.sourceUrl
+       }', '_blank')"
        } target="_blank"">Directions</button>
      </div>
     `;
