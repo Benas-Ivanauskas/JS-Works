@@ -1,0 +1,15 @@
+{
+  "name": "recipe-application",
+  "version": "1.0.0",
+  "description": "recipa application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Benas",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.35.0",
+    "regenerator-runtime": "^0.14.1"
+  }
+}
