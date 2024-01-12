@@ -44,7 +44,7 @@ class RecipeView extends View {
       </div>
       </div>
      <div class="recipe__directions">
-       <h1 >HOW TO COOK IT</h1>
+       <h1 class="recipe__directions__title" >HOW TO COOK IT</h1>
        <p class="recipe-directions--text">This recipe was carefully designed and tested by <strong>${
          this._data.publisher
        }</strong> Please check out<br> directions at their website.</p>
