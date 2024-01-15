@@ -78,8 +78,8 @@
   top: 10vh;
   width: 25rem;
   background-color: #fff;
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 1;
   transition: all 0.5s;
 }
 
@@ -87,17 +87,6 @@
   visibility: visible;
   opacity: 1;
 }
-.preview__link {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  height: auto;
-  text-decoration: none;
-  transition: 0.35s;
-}
-
-.preview__link1:hover {
-  background-color: rgb(197, 197, 197);
-}
-.message__bookmark {
-  margin-right: 100px;
+.bookmark__list {
+  margin-left: -40px;
 }
