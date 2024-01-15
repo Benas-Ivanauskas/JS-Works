@@ -76,20 +76,18 @@
   right: 231px;
   height: auto;
   top: 10vh;
-  width: 20rem;
+  width: 25rem;
   background-color: #fff;
-  box-shadow: 0 0.8rem 5rem 2rem rgb(gray);
-
-  visibility: visible;
-  opacity: 1;
+  visibility: hidden;
+  opacity: 0;
   transition: all 0.5s;
 }
-.nav__btn:hover + .bookmarks {
+
+.nav__btn--bookmark:hover + .bookmarks {
   visibility: visible;
   opacity: 1;
 }
-
-.preview__link1 {
+.preview__link {
   display: grid;
   grid-template-columns: 1fr 3fr;
   height: auto;
@@ -98,8 +96,8 @@
 }
 
 .preview__link1:hover {
-  background-color: red;
+  background-color: rgb(197, 197, 197);
 }
 .message__bookmark {
-  margin-right: 30px;
+  margin-right: 100px;
 }

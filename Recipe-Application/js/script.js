@@ -2,6 +2,7 @@ import * as model from "./model.js";
 import recipeView from "./views/recipeViews.js";
 import SearchView from "./views/searchView.js";
 import resultsView from "./views/resultsView.js";
+import bookmarksView from "./views/bookmarksView.js";
 
 //https://forkify-api.herokuapp.com/v2
 
@@ -51,13 +52,16 @@ const controlServings = function (newServings) {
 };
 
 const controlAddBookMark = function () {
+  //1) add/Remove bookmark
   if (!model.state.recipe.bookmarks) {
     model.addBookMark(model.state.recipe);
   } else {
     model.deleteBookmark(model.state.recipe.id);
   }
-
+  //2)Update recipe view
   recipeView.render(model.state.recipe);
+  //3)Render bookmarks
+  bookmarksView.render(model.state.bookmarks);
 };
 
 const init = function () {
