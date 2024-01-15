@@ -70,3 +70,36 @@
 .nav__btn:hover {
   color: rgb(243, 92, 22);
 }
+
+.bookmarks {
+  position: absolute;
+  right: 231px;
+  height: auto;
+  top: 10vh;
+  width: 20rem;
+  background-color: #fff;
+  box-shadow: 0 0.8rem 5rem 2rem rgb(gray);
+
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s;
+}
+.nav__btn:hover + .bookmarks {
+  visibility: visible;
+  opacity: 1;
+}
+
+.preview__link1 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: auto;
+  text-decoration: none;
+  transition: 0.35s;
+}
+
+.preview__link1:hover {
+  background-color: red;
+}
+.message__bookmark {
+  margin-right: 30px;
+}
