@@ -9,6 +9,10 @@ class BookmarksView extends View {
     return this._data.map(this._generatemarkupPreview).join("");
   }
 
+  addHandlerRender(handler) {
+    window.addEventListener("load", handler);
+  }
+
   _generatemarkupPreview(result) {
     return `
   <a class="preview__link" href="#${result.id}">

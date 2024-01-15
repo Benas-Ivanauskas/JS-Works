@@ -37,6 +37,7 @@ const constrolSearchResults = async function () {
 
     //3) Render results
     resultsView.render(model.state.search.results);
+
     //Visible only 10 results
     // resultsView.render(model.getSearchResultsPage());
   } catch (err) {
@@ -64,10 +65,15 @@ const controlAddBookMark = function () {
   bookmarksView.render(model.state.bookmarks);
 };
 
+const controlBookmarks = function () {
+  bookmarksView.render(model.state.bookmarks);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerAddBookMark(controlAddBookMark);
   SearchView.addHandlerSearch(constrolSearchResults);
+  bookmarksView.addHandlerRender(controlBookmarks);
 };
 init();
