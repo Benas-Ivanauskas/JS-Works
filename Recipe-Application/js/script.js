@@ -35,15 +35,24 @@ const constrolSearchResults = async function () {
     await model.loadSearchResultus(query);
 
     //3) Render results
-    // resultsView.render(model.state.search.results);
-    resultsView.render(model.getSearchResultsPage());
+    resultsView.render(model.state.search.results);
+    //Visible only 10 results
+    // resultsView.render(model.getSearchResultsPage());
   } catch (err) {
     console.error(err);
   }
 };
 
+const controlServings = function (newServings) {
+  //Update the recipe servings (in state)
+  model.updateServings(newServings);
+  //Update the recipe view
+  recipeView.render(model.state.recipe);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipes);
+  recipeView.addHandlerUpdateServings(controlServings);
   SearchView.addHandlerSearch(constrolSearchResults);
 };
 init();

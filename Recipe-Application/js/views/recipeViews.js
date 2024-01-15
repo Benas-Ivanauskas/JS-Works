@@ -13,6 +13,15 @@ class RecipeView extends View {
     // window.addEventListener("load", showRecipe);
   }
 
+  addHandlerUpdateServings(handler) {
+    this._parentElement.addEventListener("click", function (e) {
+      const btn = e.target.closest(".btn--update-servings");
+      if (!btn) return;
+      const updateTo = Number(btn.dataset.updateTo);
+      if (updateTo > 0) handler(updateTo);
+    });
+  }
+
   _generateMarkup() {
     return `
     <img src="${this._data.image}">
@@ -25,8 +34,12 @@ class RecipeView extends View {
        <p class="recipe__servings"><i class='fa fa-user'></i> ${
          this._data.servings
        }</p>
-       <button class="btn__add"><span class="symbol">+</span></button>
-       <button class="btn__add"><span class="symbol">-</span></button>
+       <button class="btn__add btn--update-servings" data-update-to="${
+         this._data.servings + 1
+       }"><span class="symbol">+</span></button>
+       <button class="btn__add btn--update-servings" data-update-to="${
+         this._data.servings - 1
+       }"><span class="symbol">-</span></button>
      </div>
      <button class="btn__bookMark"><i class="fa fa-bookmark-o" style="font-size:25px"></i></button>
     </div>
