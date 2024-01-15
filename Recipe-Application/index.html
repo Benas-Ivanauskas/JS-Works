@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/section.css" />
     <link rel="stylesheet" href="css/error.css" >
     <link rel="stylesheet" href="css/preview.css">
+    <link rel="stylesheet" href="css/modalAddRecipe.css">
     <script type="module" src="js/script.js"></script>
   </head>
   <body>
@@ -145,6 +146,50 @@
           </div>
         </div>
       </section>
+    </div>
+    </div>
+    <div class="overlay hidden"></div>
+    <div class="add-recipe-box hidden">
+      <button class="modal__close--btn">X</button>
+      <div class="recipe__title">
+        <div>
+          <p class="tilte">RECIPE DATA</p>
+          <form class="recipe__form">
+            <li >Titlte</li>
+            <input type="text">
+            <li>URL</li>
+            <input type="text">
+            <li>Image URL</li>
+            <input type="text">
+            <li>Publisher</li>
+            <input type="text">
+            <li>Cooking time</li>
+            <input type="text">
+            <li>Servings</li>
+            <input type="text">
+           
+          </form>
+        </div>
+        <div>
+          <p class="tilte">INGREDIENTS</p>
+          <form class="recipe__form">
+            <li>Ingredient 1</li>
+            <input type="text" placeholder="Format: 'Quantity, Unit, Description'">
+            <li>Ingredient 2</li>
+            <input type="text" placeholder="Format: 'Quantity, Unit, Description'">
+            <li>Ingredient 3</li>
+            <input type="text" placeholder="Format: 'Quantity, Unit, Description'">
+            <li>Ingredient 4</li>
+            <input type="text" placeholder="Format: 'Quantity, Unit, Description'">
+            <li>Ingredient 5</li>
+            <input type="text" placeholder="Format: 'Quantity, Unit, Description'">
+            <li>Ingredient 6</li>
+            <input type="text" placeholder="Format: 'Quantity, Unit, Description'">
+          </form>
+        </div>
+      </div>
+      <button class="upload__btn"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" id="IconChangeColor" height="20" width="20"><path fill="currentColor" d="M544 864V672h128L512 480 352 672h128v192H320v-1.6c-5.376.32-10.496 1.6-16 1.6A240 240 0 0 1 64 624c0-123.136 93.12-223.488 212.608-237.248A239.808 239.808 0 0 1 512 192a239.872 239.872 0 0 1 235.456 194.752c119.488 13.76 212.48 114.112 212.48 237.248a240 240 0 0 1-240 240c-5.376 0-10.56-1.28-16-1.6v1.6H544z" id="mainIconPathAttribute"></path></svg> <span>UPLOAD</span></button>
+      
     </div>
   </body>
 </html>
