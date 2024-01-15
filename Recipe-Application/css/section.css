@@ -61,7 +61,8 @@
 .message {
   text-align: center;
   margin-top: 100px;
-  font-size: 20px;
+  font-size: 30px;
+  color: #f6f6f6;
 }
 .current-recipe > img {
   width: 500px;
