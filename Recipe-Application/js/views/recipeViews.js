@@ -22,6 +22,15 @@ class RecipeView extends View {
     });
   }
 
+  addHandlerAddBookMark(handler) {
+    this._parentElement.addEventListener("click", function (e) {
+      const btn = e.target.closest(".btn--bookmark");
+      if (!btn) return;
+      btn.classList.add("bookmarked");
+      handler();
+    });
+  }
+
   _generateMarkup() {
     return `
     <img src="${this._data.image}">
@@ -41,7 +50,9 @@ class RecipeView extends View {
          this._data.servings - 1
        }"><span class="symbol">-</span></button>
      </div>
-     <button class="btn__bookMark"><i class="fa fa-bookmark-o" style="font-size:25px"></i></button>
+     <button class="btn__bookMark btn--bookmark ${
+       this._data.bookmarks ? "bookmarked" : ""
+     }"><i class="fa fa-bookmark-o" style="font-size:25px"></i></button>
     </div>
 
     <div class="recipe-ingredients-container">
