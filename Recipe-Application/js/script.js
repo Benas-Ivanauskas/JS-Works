@@ -77,3 +77,27 @@ const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
 };
 init();
+
+//open modal
+const openAddRecipeModal = document.querySelector(".nav__btn--add-recipe");
+const closeAddRecipeModal = document.querySelector(".modal__close--btn");
+const addRecipeModal = document.querySelector(".add-recipe-box");
+const addRecipeOverlay = document.querySelector(".overlay");
+
+const openModal = function () {
+  addRecipeModal.classList.remove("hidden");
+  addRecipeOverlay.classList.remove("hidden");
+};
+const closeModal = function () {
+  addRecipeModal.classList.add("hidden");
+  addRecipeOverlay.classList.add("hidden");
+};
+
+openAddRecipeModal.addEventListener("click", openModal);
+closeAddRecipeModal.addEventListener("click", closeModal);
+
+document.body.addEventListener("mousedown", function (e) {
+  if (e.target === addRecipeOverlay) {
+    closeModal();
+  }
+});
