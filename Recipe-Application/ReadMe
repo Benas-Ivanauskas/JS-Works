@@ -1,5 +1,7 @@
 This recipe application utilizes the Fetch API to retrieve data from https://forkify-api.herokuapp.com/v2. Users can enter food types in the search bar, and the application will find corresponding recipes. Clicking on a recipe displays it in the UI. If users find a recipe they like, they can add it to bookmarks, and the selection will be saved using localStorage.
 
+I created classes based on tutorials from courses.
+
 Available search queries
 carrot
 broccoli
