@@ -1,0 +1,28 @@
+.section-container {
+  display: grid;
+  margin: 80px auto;
+  grid-template-columns: 1fr 1fr;
+  width: 65rem;
+  height: 70vh;
+  gap: 50px;
+  position: relative;
+}
+
+@media only screen and (max-width: 650px) {
+  .section-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .current-movies-container {
+    width: 25rem;
+    height: 70vh;
+    margin-left: 10px;
+    position: absolute;
+    top: 720px;
+    left: 40px;
+  }
+  .search {
+    margin-left: 50px;
+  }
+}
