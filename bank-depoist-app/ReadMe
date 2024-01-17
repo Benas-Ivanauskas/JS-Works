@@ -1,5 +1,7 @@
-If you wish to log in to the bank deposit app, please use the following logins:
+This bank deposit app provides a login experience using the inserted username and password below. Once logged in, users have the ability to transfer money to different accounts and even delete their account. For security measures, the application enforces an automatic logout after 4:00 minutes of inactivity. Moreover, each successful transfer operation automatically resets the logout timer.
 
+
+If you wish to log in to the bank deposit app, please use the following logins:
 Username: tg
 Password: 1111
 or
