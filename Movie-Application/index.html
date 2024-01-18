@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/starsRatings.css" />
     <link rel="stylesheet" href="css/bookmark.css" />
     <script type="module" src="js/script.js"></script>
+    <script defer src="js/bookmarkModal.js"></script>
   </head>
   <body>
     <header>
@@ -23,6 +24,7 @@
           placeholder="search movies..."
         />
         <button class="search__button">Search</button>
+        <button class="bookmark-header__button">Bookmarks</button>
       </div>
     </header>
     <section>
@@ -72,5 +74,23 @@
         </div>
       </div>
     </section>
+    <div class="modal-bookmarks hidden">
+      <div class="modal-bookmarks__close">❌</div>
+      <a class="bookmarked__link" href="#">
+        <div class="search-movies-container">
+          <img
+            class="search__image"
+            src="img/popcorn-time-logo.png"
+            alt="movie-image"
+          />
+          <div class="search__description">
+            <p>Title</p>
+            <p>Movie: Type</p>
+            <p>Realease Year</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="overlay-bookmark hidden"></div>
   </body>
 </html>
