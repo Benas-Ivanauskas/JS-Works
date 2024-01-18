@@ -1,5 +1,6 @@
 import { renderLoader } from "./loader.js";
 import { API_KEY, URL_SEARCH, URL_CURRENT } from "./congif.js";
+import { starHtml, starRatingUpdate } from "./starRating.js";
 
 const searchContainer = document.querySelector(".search");
 
@@ -113,9 +114,13 @@ const currentMovie = async function () {
           <strong>Plot</strong>:
             ${movie.plot}
           </p>
+          ${starHtml}
     `;
+
     currentMoviesContainer.innerHTML = "";
     currentMoviesContainer.insertAdjacentHTML("afterbegin", html);
+
+    starRatingUpdate();
   } catch (err) {
     console.error(err);
   }
