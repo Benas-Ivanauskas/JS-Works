@@ -116,7 +116,9 @@ const currentMovie = async function () {
           </p>
           ${starHtml}
           <div>
+          <a href="#${movie.ID}"
           <button class="bookmark__btn">Add to bookmark</button>
+          </a>
           </div>
     `;
 

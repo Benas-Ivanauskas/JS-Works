@@ -3,7 +3,7 @@
   margin: 35px auto;
   grid-template-columns: 1fr 1fr;
   width: 65rem;
-  height: 70vh;
+  height: 81vh;
   gap: 50px;
   position: relative;
 }
@@ -16,10 +16,10 @@
 
   .current-movies-container {
     width: 25rem;
-    height: 82vh;
+    height: 88vh;
     margin-left: 10px;
     position: absolute;
-    top: 720px;
+    top: 800px;
     left: 40px;
   }
   .search {
