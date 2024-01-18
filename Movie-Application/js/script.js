@@ -6,7 +6,7 @@ const searchContainer = document.querySelector(".search");
 
 const clearContainers = () => {
   searchContainer.innerHTML = "";
-  currentMoviesContainer.innerHTML = "";
+  // currentMoviesContainer.innerHTML = "";
 };
 
 const loadMovies = async function (movie) {
@@ -51,7 +51,7 @@ const loadMovies = async function (movie) {
   }
 };
 
-loadMovies("ben");
+loadMovies("home alone");
 
 const searchInput = document.querySelector(".search__input");
 
@@ -115,6 +115,9 @@ const currentMovie = async function () {
             ${movie.plot}
           </p>
           ${starHtml}
+          <div>
+          <button class="bookmark__btn">Add to bookmark</button>
+          </div>
     `;
 
     currentMoviesContainer.innerHTML = "";

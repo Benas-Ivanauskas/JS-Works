@@ -1,6 +1,6 @@
 .section-container {
   display: grid;
-  margin: 80px auto;
+  margin: 35px auto;
   grid-template-columns: 1fr 1fr;
   width: 65rem;
   height: 70vh;

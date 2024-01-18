@@ -1,0 +1,17 @@
+.bookmark__btn {
+  border: none;
+  width: 200px;
+  padding: 8px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #2572a5;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.bookmark__btn:hover {
+  background-color: #087ecc;
+}
