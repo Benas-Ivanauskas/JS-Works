@@ -120,7 +120,7 @@ const currentMovie = async function () {
     currentMoviesContainer.innerHTML = "";
     currentMoviesContainer.insertAdjacentHTML("afterbegin", html);
 
-    starRatingUpdate();
+    starRatingUpdate(movie.ID);
   } catch (err) {
     console.error(err);
   }

@@ -1,6 +1,7 @@
 .star {
   font-size: 40px;
   transition: 0.3s all;
+  cursor: pointer;
 }
 #rating-output {
   margin-bottom: 20px;
